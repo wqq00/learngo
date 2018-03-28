@@ -3,12 +3,13 @@ package parser
 import (
 	"regexp"
 	"learngo/helloword/crawler/engine"
+	"log"
 )
 
-const city = `(<a href="http://www.zhenai.com/zhenghun/[0-9a-z]+)"[^>]*>([^<]+)</a>`
+const cityRe = `<a href="(http://album.zhenai.com/u/[0-9]+)"[^>]*>([^<]+)</a>`
 
 func ParseCity(contents []byte) engine.ParserResult {
-	re := regexp.MustCompile(city)
+	re := regexp.MustCompile(cityRe)
 	matches := re.FindAllSubmatch(contents, -1)
 
 	result := engine.ParserResult{}

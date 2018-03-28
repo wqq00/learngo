@@ -7,7 +7,7 @@ import (
 
 func Run(seeds ...Request) {
 	var requests []Request
-	log.Printf("%v", seeds)
+	log.Printf("sends---%v", seeds)
 	for _, r := range seeds {
 		requests = append(requests, r)
 	}

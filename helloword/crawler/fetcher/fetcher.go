@@ -22,7 +22,7 @@ func Fetch(url string) ([]byte, error) {
 
 	if resp.StatusCode != http.StatusOK {
 		return nil,
-			fmt.Errorf("wrong sstatus code: %d", resp.StatusCode)
+			fmt.Errorf("wrong status code: %d", resp.StatusCode)
 	}
 
 	bodyReader := bufio.NewReader(resp.Body)
