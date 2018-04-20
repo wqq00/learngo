@@ -145,7 +145,7 @@ func main(){
 		fmt.Println(err)
 	}
 	defer f.Close()
-	make_tar(tmpdir, f)
+	//make_tar(tmpdir, f)
 
 }
 
