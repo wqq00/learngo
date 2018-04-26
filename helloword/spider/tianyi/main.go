@@ -11,6 +11,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"log"
 	"errors"
+	"io/ioutil"
 )
 
 func fetch(url string) ([]string, error){
@@ -76,8 +77,8 @@ func init(){
 
 func main(){
 
-	root_path := "http://www.w3school.com.cn/tags/tag_tr.asp"
-	fetch(root_path)
+	//root_path := "http://www.w3school.com.cn/tags/tag_tr.asp"
+	//fetch(root_path)
 	//picture_path, err := fetch(root_path)
 	//if err != nil{
 	//	log.Fatal(err)
@@ -100,5 +101,14 @@ func main(){
 	//	fmt.Println(q)
 	//}
 
+	resp, err := http.Get("http://em.ttyule6.com/api/web-ajax/is-login")
+	if err != nil {
+		// handle error
+	}
+	defer resp.Body.Close()
+	body, _ := ioutil.ReadAll(resp.Body)
+	fmt.Println(string(body))
+	header := resp.Header
+	fmt.Println(header)
 
 }
