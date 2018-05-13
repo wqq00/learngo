@@ -14,18 +14,24 @@ import (
 	//"io"
 	//"bufio"
 	//"regexp"
+	//"learngo/helloword/crawler_2/scheduler"
 	"learngo/helloword/crawler_2/scheduler"
 )
 
 func main() {
 	e := engine.ConcurrentEngine{
-		Scheduler:&scheduler.SimpleScheduler{},
+		Scheduler:&scheduler.QueuedScheduler{},
 		WorkerCount: 10,
 	}
 
+	//e.Run(engine.Request{
+	//	Url:        "http://www.zhenai.com/zhenghun",
+	//	ParserFunc: parser.ParseCityList,
+	//})
+
 	e.Run(engine.Request{
-		Url:        "http://www.zhenai.com/zhenghun",
-		ParserFunc: parser.ParseCityList,
+		Url:"http://www.zhenai.com/zhenghun/shanghai",
+		ParserFunc:parser.ParseCity,
 	})
 
 	//resp, err := http.Get("http://www.zhenai.com/zhenghun")
