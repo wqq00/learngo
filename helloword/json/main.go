@@ -11,6 +11,7 @@ type Product struct {
 	Number int
 	Price float64
 	IsOnSale bool
+	Whybuy []string
 }
 
 func main(){
@@ -20,6 +21,11 @@ func main(){
 	p.Number = 666
 	p.Price = 66
 	p.IsOnSale = true
+	p.Whybuy = []string{"good", "nice", "black"}
 	data, _ := json.Marshal(&p)
+	err := json.Unmarshal([]byte(data), &p)
+	if err != nil {
+
+	}
 	fmt.Println(string(data))
 }
